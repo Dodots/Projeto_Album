@@ -1,0 +1,76 @@
+{% extends 'modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+    <title>Pagina Inicial</title>
+{% endblock %}
+
+
+{% block cabeçalho %}
+{% endblock %}
+
+
+{{% block conteudo_principal %}
+
+<!-- Receipe Slider -->
+
+<div class="contact-area section-padding-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <h1>Olá {{ user.username }}</h1>
+                    <p>Esta é a sua postagem: </p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+        </div>
+    </div>
+</div>
+
+<!-- Receipe Content Area -->
+
+    <div class="receipe-content-area">
+        <div class="container">
+            <div class="row">
+                {% for postagem in object_list %}
+                <div class="col-12 col-md-8">
+                    <div class="receipe-headline my-5">
+                        <img src="{{ postagem.foto_postagem.url }}" alt="">
+                        <span>{{ postagem.data_postagem }}</span>
+                        <h2>{{postagem.titulo}}</h2>
+                        <p>{{ postagem.descricao }}</p>
+                        <p>postado por: <b>{{ postagem.usuario }}</b></p>
+                    </div>
+                        <a href="{% url 'editar-post' postagem.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                            Editar
+                        </a>
+                        <a href="{% url 'excluir-post' postagem.pk %}" class="btn btn-danger btn-sm" title="Editar">
+                            Excluir
+                        </a>
+                    </div>
+                {% empty %}
+                <div class="col-12 col-md-8">
+                    <div class="receipe-headline my-5">
+                        <h2>Você não tem postagem</h2>
+                        <p>Não fique de fora, poste agora!</p>
+                        <a href="{% url 'add-post' %}" class="btn btn-primary my-2">Add Postagem</a>
+                    </div>            
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

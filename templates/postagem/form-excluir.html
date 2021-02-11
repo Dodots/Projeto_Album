@@ -1,0 +1,32 @@
+{% extends 'modelo.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+    <title>Postagem</title>
+{% endblock %}
+
+{% block cabeçalho %}
+<br><br>
+    <h3>Excluir</h3>
+
+<p class="lead">
+    Confirme para excluir o registro definidamente
+</p>
+
+<hr>
+
+<form action="" method="POST">
+
+    <p>
+        Deseja excluir o registro: <b>{{ object }}</b>?
+    </p>
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-danger my-2 my-sm-0">Excluir</button>
+
+</form>
+{% endblock %}
