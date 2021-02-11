@@ -2,7 +2,6 @@
 
 Trabalharei com o framework Django
 
-biblioteca crispy forms para formulários e etilizar com bootstrap
+biblioteca crispy forms para formulários e estilizar com bootstrap
 
-Template
-o Album do bootstrap.
+Template: Album do bootstrap.

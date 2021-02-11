@@ -19,9 +19,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="text-center">
+                <div class="text-center mt-5 ">
                     <h1>Olá {{ user.username }}</h1>
-                    <p>Esta é a sua postagem: </p>
                 </div>
             </div>
         </div>
@@ -31,8 +30,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-
+        <div class="col-12 mt-3">
+            {% if user.perfil.nome_completo %}
+            <h2>Bem vindo ao Album!</h2>
+            {% else %}
+            Você pode completar o seu cadastro. Acesse os <a href="{% url 'atualizar-dados' %}">meus dados</a> para atualizar.
+            {% endif %}
         </div>
     </div>
 </div>
@@ -43,13 +46,13 @@
         <div class="container">
             <div class="row">
                 {% for postagem in object_list %}
-                <div class="col-12 col-md-8">
+                <div class="col-12 mt-5 col-md-8">
                     <div class="receipe-headline my-5">
+                        <h3>{{postagem.titulo}}</h3>
                         <img src="{{ postagem.foto_postagem.url }}" alt="">
-                        <span>{{ postagem.data_postagem }}</span>
-                        <h2>{{postagem.titulo}}</h2>
-                        <p>{{ postagem.descricao }}</p>
-                        <p>postado por: <b>{{ postagem.usuario }}</b></p>
+                        <p> {{ postagem.data_postagem }} </p>
+                        <p class="mt-3">{{ postagem.descricao }}</p>
+
                     </div>
                         <a href="{% url 'editar-post' postagem.pk %}" class="btn btn-warning btn-sm" title="Editar">
                             Editar
@@ -59,9 +62,9 @@
                         </a>
                     </div>
                 {% empty %}
-                <div class="col-12 col-md-8">
+                <div class="col-12 mt-5 col-md-8">
                     <div class="receipe-headline my-5">
-                        <h2>Você não tem postagem</h2>
+                        <h3>Você não tem postagem</h3>
                         <p>Não fique de fora, poste agora!</p>
                         <a href="{% url 'add-post' %}" class="btn btn-primary my-2">Add Postagem</a>
                     </div>            

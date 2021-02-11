@@ -6,6 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
+from .models import Perfil
+
 class UsuarioCreateView(CreateView):
     template_name = "usuario/form.html"
     form_class = UsuarioForm
@@ -20,5 +22,16 @@ class UsuarioCreateView(CreateView):
         self.object.groups.add(grupo)
         self.object.save()
 
+        Perfil.objects.create(usuario=self.object)
+
         return url
 
+class PerfilUpdateView(UpdateView):
+    template_name = "usuario/form.html"
+    model = Perfil
+    fields = ["nome_completo", "cpf", "telefone"]
+    success_url = reverse_lazy("index")
+
+    def get_object(self):
+        self.get_object = get_object_or_404(Perfil, usuario=self.request.user)
+        return self.get_object
