@@ -11,7 +11,7 @@ class PostagemCreateView(LoginRequiredMixin, CreateView):
     model = Postagem
     fields = ['titulo', 'descricao', 'foto_postagem']
     template_name = 'postagem/form-upload.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('dashboard')
 
     def form_valid(self, form):
         #Antes do super não foi criado o objeto e não salvou nada.
@@ -37,6 +37,10 @@ class PostagemDeleteView(LoginRequiredMixin, DeleteView):
 class PostagensListView(ListView):
     model = Postagem
     template_name = 'index.html'
+
+    def get_queryset(self, **kwargs):
+        return Postagem.objects.filter(publicada=True)
+
 
 class PostagemDetailView(DetailView):
     model = Postagem

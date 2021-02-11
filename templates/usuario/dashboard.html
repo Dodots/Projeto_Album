@@ -30,12 +30,18 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 mt-3">
+        <div class="col-5 mt-3">
             {% if user.perfil.nome_completo %}
             <h2>Bem vindo ao Album!</h2>
+            
             {% else %}
-            Você pode completar o seu cadastro. Acesse os <a href="{% url 'atualizar-dados' %}">meus dados</a> para atualizar.
+            Você pode completar o seu cadastro. clique <a href="{% url 'atualizar-dados' %}">aqui</a> para atualizar.
             {% endif %}
+
+            {% if object_list %}
+            <p><a href="{% url 'add-post' %}" class="btn btn-primary my-2">Add Postagem</a></p>
+            {% endif %}
+
         </div>
     </div>
 </div>
@@ -44,16 +50,18 @@
 
     <div class="receipe-content-area">
         <div class="container">
+            <p>Postagens autorizadas: </p>
             <div class="row">
                 {% for postagem in object_list %}
-                <div class="col-12 mt-5 col-md-8">
+                {% if postagem.publicada %}
+                <div class="col-12 mt-3 col-md-8">
                     <div class="receipe-headline my-5">
+                        
                         <h3>{{postagem.titulo}}</h3>
                         <img src="{{ postagem.foto_postagem.url }}" alt="">
                         <p> {{ postagem.data_postagem }} </p>
                         <p class="mt-3">{{ postagem.descricao }}</p>
 
-                    </div>
                         <a href="{% url 'editar-post' postagem.pk %}" class="btn btn-warning btn-sm" title="Editar">
                             Editar
                         </a>
@@ -61,6 +69,7 @@
                             Excluir
                         </a>
                     </div>
+                {% endif %}
                 {% empty %}
                 <div class="col-12 mt-5 col-md-8">
                     <div class="receipe-headline my-5">
@@ -71,6 +80,15 @@
                 </div>
                 {% endfor %}
             </div>
+
+            {% if not postagem.publicada %}
+                <p>Postagens estão sendo analisadas:
+                {% for postagem in object_list %}
+                    {% if not postagem.publicada %}
+                        <br><b>{{postagem.titulo}}</b> 
+                    {%endif%}
+                {% endfor %}
+            {%endif%}
         </div>
     </div>
 {% endblock %}
