@@ -1,17 +1,11 @@
-{% extends 'modelo.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block titulo %}
-<title>Login</title>
-{% endblock %}
+{% block content %}
 
-{% block destaque %}
-{% endblock %}
+{% include 'partials/_menu.html' %}
 
-
-{% block cabeçalho %}
-<br><br>
 <div class="row">
 
     <div class="col-md-3 mx-auto">
@@ -29,7 +23,7 @@
         </form>
     </div>
 </div>
-{% endblock %}
 
-{% block conteudo_principal %}
+{% include 'partials/_footer.html' %}  
+
 {% endblock %}

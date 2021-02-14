@@ -1,17 +1,9 @@
-{% extends 'modelo.html' %}
-
+{% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %}
-    <title>Pagina Inicial</title>
-{% endblock %}
+{% block content %}
 
-
-{% block cabeçalho %}
-{% endblock %}
-
-
-{{% block conteudo_principal %}
+{% include 'partials/_menu.html' %}
 
 <!-- Receipe Slider -->
 
@@ -91,6 +83,8 @@
             {%endif%}
         </div>
     </div>
+
+{% include 'partials/_footer.html' %}   
 {% endblock %}
 
 

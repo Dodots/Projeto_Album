@@ -1,12 +1,10 @@
-{% extends 'modelo.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block titulo %}
-    <title>Adicionar Postagem</title>
-{% endblock %}
+{% block content %}
 
-{% block cabeçalho %}
+{% include 'partials/_menu.html' %}
 
 <div class="container text-left">
     <div class="text-center">
@@ -23,8 +21,8 @@
         </button>
     </form>
 </div>
-{% endblock %}
 
-{% block conteudo_principal %}
+{% include 'partials/_footer.html' %} 
+
 {% endblock %}
 

@@ -1,33 +1,30 @@
-{% extends 'modelo.html' %}
-
+{% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %}
-    <title>Pagina Inicial</title>
-{% endblock %}
+{% block content %}
 
-{% block cabeçalho %}
-{% endblock %}
+{% include 'partials/_menu.html' %}
 
-
-{% block conteudo_principal %}
-
-        <!-- Receipe Slider -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mt-5">
-                    <h2>{{postagem.titulo}}</h2>
-                    <img src="{{ postagem.foto_postagem.url }}" alt="">
-                </div>
-            </div>
-     
-        
-            <!-- Receipe Content Area -->
-            <div class="col-12 mt-5 col-md-8">
-                <div class="receipe-headline my-5">
-                    <p> {{ postagem.data_postagem }} </p>
-                    <p class="mt-3">{{ postagem.descricao }}</p>
-                </div>
+<article>
+    <!-- Receipe Slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <h2>{{postagem.titulo}}</h2>
+                <img src="{{ postagem.foto_postagem.url }}" alt="">
             </div>
         </div>
+     
+        <!-- Receipe Content Area -->
+        <div class="col-12 mt-5 col-md-8">
+            <div class="receipe-headline my-5">
+                <p> {{ postagem.data_postagem }} </p>
+                <p class="mt-3">{{ postagem.descricao }}</p>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% include 'partials/_footer.html' %}   
+
 {% endblock %}

@@ -36,7 +36,7 @@ class PostagemDeleteView(LoginRequiredMixin, DeleteView):
 
 class PostagensListView(ListView):
     model = Postagem
-    template_name = 'index.html'
+    template_name = 'postagem/index.html'
 
     def get_queryset(self, **kwargs):
         return Postagem.objects.filter(publicada=True)

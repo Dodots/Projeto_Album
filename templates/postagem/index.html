@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+{% include 'partials/_menu.html' %}
+
+<main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            {% if not request.user.is_authenticated %}
+
+            <h1>ESPALHE ESPERANÇA!</h1>
+            <p class="lead text-muted">Aqui você pode compartilha a sua melhor foto com o seu melhor texto, Vamos esparramar beleza e sabedoria neste mundo! ;)<p>
+            <p class="lead text-muted"></p>Não perca tempo, crie a sua conta!</p>
+            <a href="{% url 'cadastro' %}" class="btn btn-primary my-2">Cadastre aqui</a>
+
+            {% else %}
+
+            <h1>Espalhe Esperança {{ user.username }}!</h1>
+            <p class="lead text-muted">
+                Compartilhe uma linda foto ou <br> 
+                a imagem mais fantástica que você já viu.<br>
+                E escreva um lindo texto trazendo esperança para todos!
+            </p>
+            <a href="{% url 'add-post' %}" class="btn btn-primary my-2">Add Postagem</a>
+        </div>
+            {% endif %}
+    </section>  
+
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for postagem in object_list %}
+
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <h2 class="text-center">{{ postagem.titulo }}</h2>
+                        <img class="img-thumbnail" width="100%" height="225" src="/media/{{ postagem.foto_postagem }}" alt="">
+                        <div class="card-body">
+                            <p class="card-text">{{ postagem.descricao }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'postagem' postagem.id %}">Visualizar</a></button>
+                                </div>
+                                <small class="text-muted">{{ postagem.usuario }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% empty %}
+
+            <p>Nenhum produto registrado</p>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% include 'partials/_footer.html' %}
+
+
+{% endblock %}
