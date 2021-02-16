@@ -5,26 +5,31 @@
 
 {% include 'partials/_menu.html' %}
 
-<article>
+<article class="background_postagem">
     <!-- Receipe Slider -->
     <div class="container">
         <div class="row">
             <div class="col-12 mt-5">
-                <h2>{{postagem.titulo}}</h2>
-                <img src="{{ postagem.foto_postagem.url }}" alt="">
+                <h1 class="titulo_img">{{postagem.titulo}}</h1>
+                <figure class="div_img">
+                    <img class="img_postagem" src="{{ postagem.foto_postagem.url }}" alt="">
+                    <figcaption class="text-center text-muted">{{ postagem.data_postagem }}</figcaption>
+                </figure>
             </div>
         </div>
      
         <!-- Receipe Content Area -->
-        <div class="col-12 mt-5 col-md-8">
-            <div class="receipe-headline my-5">
-                <p> {{ postagem.data_postagem }} </p>
-                <p class="mt-3">{{ postagem.descricao }}</p>
+        <div class="col-12 mt-5">
+            <div class="receipe-headline mt-5">
+                <h2>Descrição:</h2>
+                <p class="lead">{{ postagem.descricao }}</p>
             </div>
         </div>
     </div>
+
+    {% include 'partials/_footer.html' %}
 </article>
 
-{% include 'partials/_footer.html' %}   
+
 
 {% endblock %}
