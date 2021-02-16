@@ -8,4 +8,5 @@ urlpatterns = [
     path('excluir-post/<int:pk>', PostagemDeleteView.as_view(), name='excluir-post'),
     path('postagem/<int:pk>', PostagemDetailView.as_view(), name='postagem'),
     path('dashboard', DashboardListView.as_view(), name='dashboard'),
+    path(r'^$', PostagensListView.as_view(), name='file-exam-view')
 ]

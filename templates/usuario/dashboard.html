@@ -65,15 +65,16 @@
                 {% endif %}
                 {% endfor %}
             </div>
+            
+            <p class="titulo mt-3 lead"><b>lista de postagens sendo analisadas:</b>
 
-            {% if not postagem.publicada %}
-                <p class="titulo mt-3 lead"><b>Postagens estão sendo analisadas:</b>
-                {% for postagem in object_list %}
-                    {% if not postagem.publicada %}
-                        <br>{{postagem.titulo}}
-                    {%endif%}
-                {% endfor %}
-            {%endif%}
+            {% for postagem in object_list %}
+                {% if not postagem.publicada %}
+                    <br>{{postagem.titulo}}
+                {%endif%}
+                {% empty %}
+                
+            {% endfor %}
         </div>
     </div>
 

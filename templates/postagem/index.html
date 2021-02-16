@@ -32,7 +32,7 @@
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row">
-                {% for postagem in object_list %}
+                {% for postagem in postagem_list %}
 
                 <div class="col-md-4">
                     <div class="card mb-4 pt-1 shadow-sm">
@@ -52,51 +52,33 @@
             <p>Nenhum produto registrado</p>
 
                 {% endfor %}
+
+
+            
+            
+            
+            
             </div>
+            {% if is_paginated %}
+            <div class="pagination">
+                <span class="page-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}"><<</a>
+                    {% endif %}
+                    <span class="page-current">
+                        {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </span>
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">>></a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endif %}
         </div>
     </div>
 </main>
 
-   <!-- ##### Pagination ##### -->
-<section class="top-catagory-area section-padding-20-0">
-    <div class="container">
-        {% for postagem in object_list %}
-        {% if postagem.has_other_pages %}
-        <ul class="pagination">
-            {% if postagem.has_previous %}
-            <li class="page-item">
-                <a href="?page={{ receitas.previous_page_number }}" class="page-link">&laquo;</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a class="page-link">&laquo;</a>
-            </li>
-            {% endif %}                
-            {% for postagem in postagem.paginator.page_range %}
-            {% if postagem.number == pagina %}
-            <li class="page-item active">
-                <a class="page-link">{{ pagina }}</a>
-            </li>
-            {% else %}
-            <li class="page-item">
-                <a href="?page={{ pagina }}" class="page-link">{{ pagina }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-            {% if postagem.has_next %}
-            <li class="page-item">
-                <a href="?page={{ receitas.next_page_number }}" class="page-link">&raquo;</a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a class="page-link">&raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-        {% endif %}
-        {% endfor %}
-    </div>
-</section>
+
 <!-- ##### Pagination End ##### -->
 
 {% include 'partials/_footer.html' %}

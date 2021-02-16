@@ -14,11 +14,10 @@ class PostagemCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('dashboard')
 
     def form_valid(self, form):
-        #Antes do super não foi criado o objeto e não salvou nada.
+        
         form.instance.usuario = self.request.user
         url = super().form_valid(form)
        
-        #Depois do super o objeto é criado
         return url
 
 class PostagemUpdateView(LoginRequiredMixin, UpdateView):
@@ -37,9 +36,11 @@ class PostagemDeleteView(LoginRequiredMixin, DeleteView):
 class PostagensListView(ListView):
     model = Postagem
     template_name = 'postagem/index.html'
+    context_object_name = "postagem_list"
+    paginate_by = 6 
 
     def get_queryset(self, **kwargs):
-        return Postagem.objects.filter(publicada=True)
+        return Postagem.objects.filter(publicada=True).order_by('-data_postagem')
 
 
 class PostagemDetailView(DetailView):
