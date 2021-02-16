@@ -44,21 +44,22 @@
                 {% if postagem.publicada %}
                 <div class="col-md-6 my-2" >
                     
-                    <div class="receipe-headline my-3">
+                    <div class="receipe-headline my-3 text-center">
                         
                         <h3>{{postagem.titulo}}</h3>
                         <div class="div_img">
                         <img class="img_list_dashboard" src="{{ postagem.foto_postagem.url }}" alt="">
                         </div>
                         <p> {{ postagem.data_postagem }} </p>
-                        <p class="mt-3 lead">{{ postagem.descricao }}</p>
-
-                        <a href="{% url 'editar-post' postagem.pk %}" class="btn btn-warning btn-sm" title="Editar">
-                            Editar
-                        </a>
-                        <a href="{% url 'excluir-post' postagem.pk %}" class="btn btn-danger btn-sm" title="Editar">
-                            Excluir
-                        </a>
+                        <p class="mt-3 lead text-left">{{ postagem.descricao }}</p>
+                        <div class="text-left">
+                            <a href="{% url 'editar-post' postagem.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                                Editar
+                            </a>
+                            <a href="{% url 'excluir-post' postagem.pk %}" class="btn btn-danger btn-sm" title="Editar">
+                                Excluir
+                            </a>
+                        </div>
                     </div>
                 </div>
                 {% endif %}

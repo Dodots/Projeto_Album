@@ -6,28 +6,29 @@
 
 {% include 'partials/_menu.html' %}
 
-<br><br>
-    <h3>Excluir</h3>
+<div class="col-md-4 mx-auto my-5">
+        <h3>Excluir</h3>
 
-<p class="lead">
-    Confirme para excluir o registro definidamente
-</p>
-
-<hr>
-
-<form action="" method="POST">
-
-    <p>
-        Deseja excluir o registro: <b>{{ object }}</b>?
+    <p class="lead">
+        Confirme para excluir o registro definidamente
     </p>
 
-    {% csrf_token %}
+    <hr>
 
-    {{ form.as_p }}
+    <form action="" method="POST">
 
-    <button type="submit" class="btn btn-danger my-2 my-sm-0">Excluir</button>
+        <p>
+            Deseja excluir o registro: <b>{{ object }}</b>?
+        </p>
 
-</form>
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-danger my-2 my-sm-0">Excluir</button>
+
+    </form>
+</div>
 
 {% include 'partials/_footer.html' %} 
 
