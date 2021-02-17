@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'rci&sap9bn1a()i=4p(o3ym=_(q7p%
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://algum-project.herokuapp.com/', 'http://127.0.0.1:8000']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
