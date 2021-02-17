@@ -141,3 +141,7 @@ MEDIA_ROOT = "{}/media".format(BASE_DIR)
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
