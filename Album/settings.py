@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
         # Biblioteca:
     'crispy_forms',
-    'storages',
 
     #Apps:
     'postagem',
