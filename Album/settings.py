@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from decouple import config
 from pathlib import Path
 import os
-import dj_database_url
 import functools
-from decouple import config
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,11 +29,13 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'rci&sap9bn1a()i=4p(o3ym=_(q7p%
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['https://algum-project.herokuapp.com/', 'http://127.0.0.1:8000']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
 
 
 # Application definition
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
         # Biblioteca:
     'crispy_forms',
+    'storages',
 
     #Apps:
     'postagem',
@@ -134,24 +136,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
 
-# Arquivos Estaticos
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
 
-# Arquivos de upload
-MEDIA_URL = "/media/"
-MEDIA_ROOT = "{}/media".format(BASE_DIR)
+
 
 # Configuração de autenticação
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
 
+
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
 
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
