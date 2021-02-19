@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-from decouple import config
+from decouple import config, Csv
 from pathlib import Path
 import os
 import functools
@@ -24,14 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'rci&sap9bn1a()i=4p(o3ym=_(q7p%++o84xf(o5ay@)uh@g_#'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'rci&sap9bn1a()i=4p(o3ym=_(q7p%++o84xf(o5ay@)uh@g_#')
+SECRET_KEY = config('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['https://algum-project.herokuapp.com/', 'http://127.0.0.1:8000']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
