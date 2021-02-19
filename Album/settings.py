@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'collectfast',
     'django.contrib.staticfiles',
         # Biblioteca:
     'crispy_forms',
@@ -143,24 +144,24 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+COLLECTFAST_ENABLED = False
 
-AWS_ACCESS_KEY_ID = 'AKIAIKURICJASTUW6AAQ'
 
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
 # STORAGE CONFIGURATION IN S3 AWS
 # ------------------------------------------------------------------------------
 
 if AWS_ACCESS_KEY_ID:
-    AWS_SECRET_ACCESS_KEY = '6qE+Vu1WLH95fczX75oFsEROkmphcjRw4tfEVz0D'
-    AWS_STORAGE_BUCKET_NAME = 'album-project'
+    AWS_SECRET_ACCESS_KEY = config('AWS_SECRETA_ACESS_KEY')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME')
     AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
     AWS_PRELOAD_METADATA = True
     AWS_AUTO_CREATE_BUCKET = False
     AWS_QUERYSTRING_AUTH = True
     AWS_S3_CUSTOM_DOMAIN = None
 
-    # COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-    # COLLECTFAST_ENABLED = True
+    COLLECTFAST_ENABLED = True
 
     AWS_DEFAULT_ACL = 'private'
 
