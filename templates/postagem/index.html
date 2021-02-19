@@ -38,7 +38,7 @@
                     <div class="card mb-4 pt-1 shadow-sm">
                         <a href="{% url 'postagem' postagem.id %}"><h2 class="titulo_img">{{ postagem.titulo }}</h2></a>
                         <div class="div_img_list">
-                            <a href="{% url 'postagem' postagem.id %}"><img width="100%" src="/media/{{ postagem.foto_postagem }}" alt=""></a>
+                            <a href="{% url 'postagem' postagem.id %}"><img width="100%" src="{{ postagem.foto_postagem.url }}" alt=""></a>
                         </div>
                         <div class="card-body">
                             <p class="card-text paragrafo_list">{{ postagem.descricao }}</p>
