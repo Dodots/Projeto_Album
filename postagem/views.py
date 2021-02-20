@@ -52,7 +52,12 @@ class DashboardListView(LoginRequiredMixin, ListView):
     model = Postagem
     template_name = 'usuario/dashboard.html'
 
-    def get_queryset(self):
-        self.object_list = Postagem.objects.filter(usuario=self.request.user)
-        return self.object_list
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        
+        context['publicado'] = Postagem.objects.filter(usuario=self.request.user, publicada=True).order_by('-data_postagem')
+        context['nao_publicado'] = Postagem.objects.filter(usuario=self.request.user, publicada=False).order_by('-data_postagem')
+
+        return context 
+
 
