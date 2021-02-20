@@ -40,7 +40,7 @@
                         <a href="{% url 'postagem' postagem.id %}"><h2 class="titulo_img">{{ postagem.titulo }}</h2></a>
                         </div>
                         <div class="div_img_list">
-                            <a href="{% url 'postagem' postagem.id %}"><img class="imagem_centralizada" src="{{ postagem.foto_postagem.url }}" alt=""></a>
+                            <a href="{% url 'postagem' postagem.id %}"><img width=100% src="{{ postagem.foto_postagem.url }}" alt=""></a>
                         </div>
                         <div class="card-body">
                             <p class="card-text paragrafo_list">{{ postagem.descricao }}</p>
