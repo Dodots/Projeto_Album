@@ -29,6 +29,6 @@ inteface (375x667):
 - bootstrap.
 - crispy forms
 
-Obs: O app está hospedado no Heroku e como padrão utilizei o postgre.
-Para arquivos estáticos foi utilizado o serviço S3 da amazon. 
+Obs: O app está hospedado no Heroku e como padrão utilizei o PostgreSQL.
+Para arquivos estáticos foi utilizado o serviço S3 da Amazon. 
 
