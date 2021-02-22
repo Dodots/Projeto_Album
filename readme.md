@@ -11,7 +11,7 @@ Para compartilhar suas fotos e textos basta criar uma conta no mesmo e assim já
 
 Venha ter uma expêriencia com <a href="https://algum-project.herokuapp.com/">Álbum</a>
 
-A inteface do Álbum:
+A inteface:
 
 ![interface-pc](https://user-images.githubusercontent.com/42556458/108722353-d1c99c00-7501-11eb-92da-a6bb35b04d5b.png)
 
@@ -23,9 +23,10 @@ A inteface do Álbum:
 <h3>🛠️ Construído com</h3>
 
 - Python
-
 - Django
-
+- bootstrap.
 - crispy forms
 
-- bootstrap.
+Obs: O app para modo de produção utilizei o postgre referente a banco de dados
+e para arquivos estáticos utilizamos o serviço S3 da amazon. 
+
