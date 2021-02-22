@@ -12,10 +12,10 @@ Venha ter uma expêriencia com ` [Álbum](https://algum-project.herokuapp.com/)`
 
 A inteface do Álbum:
 
-`  `
+<img src="https://album-project.s3.amazonaws.com/media/interface-pc.png" alt="">
 
+<img src="https://album-project.s3.amazonaws.com/media/interface-cel.png" alt="">
 
-` `
 
 <h3>🛠️ Construído com</h3>
 
