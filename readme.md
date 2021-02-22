@@ -1,3 +1,4 @@
+
 <h1 align="center">Álbum</h1>
 
 <p align="center">Álbum é projeto onde você compartilha suas fotos e textos.</p>
@@ -8,13 +9,15 @@ O Álbum é uma projeto web, onde você conseguirá visualizar as fotos comparti
 
 Para compartilhar suas fotos e textos basta criar uma conta no mesmo e assim já estará liberado.
 
-Venha ter uma expêriencia com ` [Álbum](https://algum-project.herokuapp.com/)`
+Venha ter uma expêriencia com <a href="https://algum-project.herokuapp.com/">Álbum</a>
 
 A inteface do Álbum:
 
-<img src="https://album-project.s3.amazonaws.com/media/interface-pc.png" alt="">
+![interface-pc](https://user-images.githubusercontent.com/42556458/108722353-d1c99c00-7501-11eb-92da-a6bb35b04d5b.png)
 
-<img src="https://album-project.s3.amazonaws.com/media/interface-cel.png" alt="">
+
+![interface-cel](https://user-images.githubusercontent.com/42556458/108723186-bd39d380-7502-11eb-916f-eb14b013b974.png)
+
 
 
 <h3>🛠️ Construído com</h3>
