@@ -3,6 +3,8 @@
 
 <p align="center">Álbum é projeto onde você compartilha suas fotos e textos.</p>
 
+<br><br>
+<b>Status do Projeto:</b> Concluido :heavy_check_mark:
 <h2>Visão Geral</h2>
 
 O Álbum é uma projeto web, onde você conseguirá visualizar as fotos compartilhadas por outros usuarios e também irá conseguir compartilhar as suas próprias fotos e textos.
