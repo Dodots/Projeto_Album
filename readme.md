@@ -27,6 +27,6 @@ A inteface:
 - bootstrap.
 - crispy forms
 
-Obs: O app para modo de produção utilizei o postgre referente a banco de dados
-e para arquivos estáticos utilizamos o serviço S3 da amazon. 
+Obs: O app está hospedado no Heroku e como padrão utilizei o postgre.
+Para arquivos estáticos foi utilizado o serviço S3 da amazon. 
 
